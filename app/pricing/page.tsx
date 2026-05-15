@@ -52,7 +52,7 @@ const tiers = [
       "Earnings tracking",
       "1-hour shift reminders (push)",
       "Push notifications",
-      "Priority support + onboarding call",
+      "Priority support",
     ],
     cta: "Start free trial",
     ctaHref: "#",
