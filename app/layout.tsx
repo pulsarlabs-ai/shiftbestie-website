@@ -14,6 +14,10 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   title: "Shift Bestie — Your shifts, sorted.",
   description: "The friendly shift management app for hospitality and events teams. Schedule shifts, track earnings, and manage cover requests — all in one place.",
+  icons: {
+    icon: "/app-icon.png",
+    apple: "/app-icon.png",
+  },
   openGraph: {
     title: "Shift Bestie — Your shifts, sorted.",
     description: "The friendly shift management app for hospitality and events teams.",

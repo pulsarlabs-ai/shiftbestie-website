@@ -46,14 +46,23 @@ const screenshots = [
   },
 ];
 
-const AUTO_ADVANCE = 5000;
+const AUTO_ADVANCE = 8000;
 const FADE_MS = 380;
+const TOUCH_PAUSE_MS = 6000;
 
 export default function ScreenshotCarousel() {
   const [active, setActive] = useState(0);
   const [displayed, setDisplayed] = useState(0);
   const [visible, setVisible] = useState(true);
+  const [paused, setPaused] = useState(false);
   const transitioning = useRef(false);
+  const touchResumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleTouch = () => {
+    setPaused(true);
+    if (touchResumeTimer.current) clearTimeout(touchResumeTimer.current);
+    touchResumeTimer.current = setTimeout(() => setPaused(false), TOUCH_PAUSE_MS);
+  };
 
   const goTo = useCallback((index: number, dir: "next" | "prev" = "next") => {
     void dir;
@@ -77,14 +86,20 @@ export default function ScreenshotCarousel() {
   }, [active, goTo]);
 
   useEffect(() => {
+    if (paused) return;
     const t = setInterval(advance, AUTO_ADVANCE);
     return () => clearInterval(t);
-  }, [advance]);
+  }, [advance, paused]);
 
   const s = screenshots[displayed];
 
   return (
-    <div className="flex flex-col items-center gap-8">
+    <div
+      className="flex flex-col items-center gap-8"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onTouchStart={handleTouch}
+    >
       {/* Phone + arrows */}
       <div className="flex items-center gap-6 md:gap-12">
         {/* Prev */}

@@ -40,8 +40,9 @@ const features = [
   },
 ];
 
-const INTERVAL = 3500;
+const INTERVAL = 6000;
 const FADE_MS = 320;
+const TOUCH_PAUSE_MS = 5000;
 
 export default function FeatureCarousel() {
   const [active, setActive] = useState(0);
@@ -50,6 +51,13 @@ export default function FeatureCarousel() {
   const [progress, setProgress] = useState(0);
   const [paused, setPaused] = useState(false);
   const transitioning = useRef(false);
+  const touchResumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleTouch = () => {
+    setPaused(true);
+    if (touchResumeTimer.current) clearTimeout(touchResumeTimer.current);
+    touchResumeTimer.current = setTimeout(() => setPaused(false), TOUCH_PAUSE_MS);
+  };
 
   const goTo = useCallback((index: number) => {
     if (transitioning.current || index === active) return;
@@ -93,6 +101,7 @@ export default function FeatureCarousel() {
       className="max-w-4xl mx-auto"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
+      onTouchStart={handleTouch}
     >
       {/* Main display card */}
       <div className="card p-10 md:p-14 text-center mb-8 h-[300px] flex flex-col items-center justify-center overflow-hidden">
