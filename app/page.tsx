@@ -170,9 +170,9 @@ export default function Home() {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <ScrollReveal>
             <p className="text-2xl md:text-3xl font-bold text-[#1A1A2E] leading-snug">
-              Tired of scheduling over WhatsApp,
+              Tired of scheduling over WhatsApp,{" "}
               <br className="hidden md:block" />
-              tracking hours in a spreadsheet,
+              tracking hours in a spreadsheet,{" "}
               <br className="hidden md:block" />
               and chasing cover on your day off?
             </p>
