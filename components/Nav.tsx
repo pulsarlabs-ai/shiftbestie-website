@@ -21,6 +21,9 @@ export default function Nav() {
           <Link href="/pricing" className="text-sm font-600 text-[#9A9AA8] hover:text-[#1A1A2E] transition-colors">
             Pricing
           </Link>
+          <Link href="/help" className="text-sm font-600 text-[#9A9AA8] hover:text-[#1A1A2E] transition-colors">
+            Help
+          </Link>
           <Link href="mailto:hello@shiftbestie.co.uk" className="text-sm font-600 text-[#9A9AA8] hover:text-[#1A1A2E] transition-colors">
             Contact
           </Link>
@@ -52,6 +55,7 @@ export default function Nav() {
         <div className="md:hidden border-t border-black/5 bg-white px-6 py-4 flex flex-col gap-4">
           <Link href="/#features" className="text-sm font-600 text-[#9A9AA8]" onClick={() => setOpen(false)}>Features</Link>
           <Link href="/pricing" className="text-sm font-600 text-[#9A9AA8]" onClick={() => setOpen(false)}>Pricing</Link>
+          <Link href="/help" className="text-sm font-600 text-[#9A9AA8]" onClick={() => setOpen(false)}>Help</Link>
           <Link href="mailto:hello@shiftbestie.co.uk" className="text-sm font-600 text-[#9A9AA8]">Contact</Link>
           <a href="#waitlist" className="btn-primary !py-2 !px-5 !text-sm text-center" onClick={() => setOpen(false)}>
             Get early access
