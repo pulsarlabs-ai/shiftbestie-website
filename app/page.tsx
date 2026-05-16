@@ -3,8 +3,10 @@ import Link from "next/link";
 import PhoneFrame from "@/components/PhoneFrame";
 import FeatureCarousel from "@/components/FeatureCarousel";
 import ScreenshotCarousel from "@/components/ScreenshotCarousel";
-import WaitlistForm from "@/components/WaitlistForm";
 import ScrollReveal from "@/components/ScrollReveal";
+
+const APP_STORE_URL = "#"; // TODO: replace with live App Store URL
+const PLAY_STORE_URL = "#"; // TODO: replace with live Google Play URL
 
 const heroScreenshots = [
   { src: "/screenshots/admin-home-raw.png", alt: "Admin dashboard" },
@@ -64,7 +66,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 pt-16 pb-20 flex flex-col md:flex-row items-center gap-12">
           {/* Copy */}
           <div className="flex-1 flex flex-col gap-6 text-center md:text-left z-10">
-            <p className="section-label">Now in early access</p>
+            <p className="section-label">Available on iOS &amp; Android</p>
             <h1 className="text-5xl md:text-6xl font-black leading-tight tracking-tight text-[#1A1A2E]">
               Your shifts,{" "}
               <span className="gradient-text">sorted.</span>
@@ -73,13 +75,25 @@ export default function Home() {
               The shift management app built for hospitality and events teams.
               Scheduling, cover requests, and payroll — all in one friendly place.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-              <a href="#waitlist" className="btn-primary">
-                Get early access
+            <div className="flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start">
+              <a href={APP_STORE_URL} aria-label="Download on the App Store">
+                <Image
+                  src="/badge-app-store.svg"
+                  alt="Download on the App Store"
+                  width={123}
+                  height={41}
+                  className="h-[41px] w-auto"
+                />
               </a>
-              <Link href="/pricing" className="btn-outline">
-                See pricing
-              </Link>
+              <a href={PLAY_STORE_URL} aria-label="Get it on Google Play">
+                <Image
+                  src="/badge-google-play.png"
+                  alt="Get it on Google Play"
+                  width={158}
+                  height={61}
+                  className="h-[61px] w-auto"
+                />
+              </a>
             </div>
             <p className="text-xs text-[#9A9AA8]">
               14-day free trial · No credit card required
@@ -232,7 +246,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="#waitlist"
+                href="#download"
                 className="bg-white text-[#FF6B6B] font-bold py-3 px-8 rounded-2xl hover:opacity-90 transition-opacity"
               >
                 Start free trial
@@ -248,21 +262,36 @@ export default function Home() {
         </ScrollReveal>
       </section>
 
-      {/* ── Waitlist ─────────────────────────────────────────────────────── */}
-      <section id="waitlist" className="max-w-2xl mx-auto px-6 py-16 text-center">
+      {/* ── Download ─────────────────────────────────────────────────────── */}
+      <section id="download" className="max-w-2xl mx-auto px-6 py-16 text-center">
         <ScrollReveal>
-          <p className="section-label mb-3">Early access</p>
+          <p className="section-label mb-3">Download free</p>
           <h2 className="text-4xl font-black text-[#1A1A2E] mb-4">
-            Be first through the door
+            Ready when you are
           </h2>
           <p className="text-[#9A9AA8] mb-8 text-lg">
-            Shift Bestie is launching soon on iOS. Drop your email and we&apos;ll
-            reach out the moment it&apos;s live.
+            14-day free trial, no credit card needed. Available on iOS and Android.
           </p>
-          <WaitlistForm />
-          <p className="text-xs text-[#9A9AA8] mt-4">
-            No spam. Unsubscribe any time.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href={APP_STORE_URL} aria-label="Download on the App Store">
+              <Image
+                src="/badge-app-store.svg"
+                alt="Download on the App Store"
+                width={141}
+                height={47}
+                className="h-[47px] w-auto"
+              />
+            </a>
+            <a href={PLAY_STORE_URL} aria-label="Get it on Google Play">
+              <Image
+                src="/badge-google-play.png"
+                alt="Get it on Google Play"
+                width={180}
+                height={69}
+                className="h-[69px] w-auto"
+              />
+            </a>
+          </div>
         </ScrollReveal>
       </section>
     </>

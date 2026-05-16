@@ -16,7 +16,7 @@ const tiers = [
       "Email support",
     ],
     cta: "Start free trial",
-    ctaHref: "#",
+    ctaHref: "/#download",
   },
   {
     name: "Starter",
@@ -35,7 +35,7 @@ const tiers = [
       "Email support",
     ],
     cta: "Start free trial",
-    ctaHref: "#",
+    ctaHref: "/#download",
   },
   {
     name: "Pro",
@@ -55,7 +55,7 @@ const tiers = [
       "Priority support",
     ],
     cta: "Start free trial",
-    ctaHref: "#",
+    ctaHref: "/#download",
   },
 ];
 

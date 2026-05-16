@@ -27,8 +27,8 @@ export default function Nav() {
           <Link href="mailto:hello@shiftbestie.co.uk" className="text-sm font-600 text-[#9A9AA8] hover:text-[#1A1A2E] transition-colors">
             Contact
           </Link>
-          <a href="#waitlist" className="btn-primary !py-2 !px-5 !text-sm">
-            Get early access
+          <a href="#download" className="btn-primary !py-2 !px-5 !text-sm">
+            Download free
           </a>
         </div>
 
@@ -57,8 +57,8 @@ export default function Nav() {
           <Link href="/pricing" className="text-sm font-600 text-[#9A9AA8]" onClick={() => setOpen(false)}>Pricing</Link>
           <Link href="/help" className="text-sm font-600 text-[#9A9AA8]" onClick={() => setOpen(false)}>Help</Link>
           <Link href="mailto:hello@shiftbestie.co.uk" className="text-sm font-600 text-[#9A9AA8]">Contact</Link>
-          <a href="#waitlist" className="btn-primary !py-2 !px-5 !text-sm text-center" onClick={() => setOpen(false)}>
-            Get early access
+          <a href="#download" className="btn-primary !py-2 !px-5 !text-sm text-center" onClick={() => setOpen(false)}>
+            Download free
           </a>
         </div>
       )}
