@@ -9,8 +9,16 @@ export default function Nav() {
   return (
     <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo.svg" alt="Shift Bestie" width={120} height={40} priority />
+        <Link href="/" className="flex items-center gap-2.5">
+          <Image
+            src="/app-icon-nav.png"
+            alt=""
+            width={32}
+            height={32}
+            className="rounded-lg"
+            priority
+          />
+          <span className="font-black text-lg gradient-text leading-none">shift bestie</span>
         </Link>
 
         {/* Desktop links */}
