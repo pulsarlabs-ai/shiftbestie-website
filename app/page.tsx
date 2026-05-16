@@ -7,26 +7,11 @@ import WaitlistForm from "@/components/WaitlistForm";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const heroScreenshots = [
-  { src: "/screenshots/ShiftBestie-Admin1.png", alt: "Admin roster view" },
-  { src: "/screenshots/ShiftBestie-Worker1.png", alt: "Worker home" },
-  { src: "/screenshots/ShiftBestie-Admin5.png", alt: "Payroll view" },
+  { src: "/screenshots/admin-home-raw.png", alt: "Admin dashboard" },
+  { src: "/screenshots/worker-home-raw.png", alt: "Worker home" },
+  { src: "/screenshots/admin-payroll-raw.png", alt: "Payroll view" },
 ];
 
-interface Chip {
-  icon: string;
-  label: string;
-  top?: string;
-  bottom?: string;
-  left?: string;
-  right?: string;
-  delay: string;
-}
-
-const chips: Chip[] = [
-  { icon: "📅", label: "Shift assigned",  top: "12%",  left: "-16px", delay: "0.9s" },
-  { icon: "💷", label: "£187.50 earned", top: "22%",  right: "-16px", delay: "1.25s" },
-  { icon: "✅", label: "Cover sorted",    bottom: "18%", left: "4px",  delay: "1.6s" },
-];
 
 export default function Home() {
   return (
@@ -102,28 +87,9 @@ export default function Home() {
           </div>
 
           {/* Phone trio + floating chips */}
-          <div className="flex-1 relative flex justify-center items-end gap-3 md:gap-5">
-            {/* Floating callout chips — desktop only */}
-            {chips.map((chip) => (
-              <div
-                key={chip.label}
-                className="absolute hidden md:flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-lg text-sm font-bold text-[#1A1A2E] whitespace-nowrap z-20 select-none"
-                style={{
-                  top: chip.top,
-                  bottom: chip.bottom,
-                  left: chip.left,
-                  right: chip.right,
-                  animation: `chip-enter 0.55s cubic-bezier(0.34,1.56,0.64,1) ${chip.delay} both, chip-float 4s ease-in-out calc(${chip.delay} + 0.55s) infinite`,
-                  boxShadow: "0 4px 20px rgba(255,107,107,0.12)",
-                }}
-              >
-                <span>{chip.icon}</span>
-                <span>{chip.label}</span>
-              </div>
-            ))}
-
-            {/* Left phone */}
-            <div className="translate-y-8 hidden sm:block">
+          <div className="flex-1 relative flex justify-center items-end gap-3 md:gap-5 pb-6">
+            {/* Left phone — Admin dashboard */}
+            <div className="relative translate-y-8 hidden sm:block" style={{ zIndex: 20 }}>
               <PhoneFrame width={160}>
                 <Image
                   src={heroScreenshots[0].src}
@@ -133,10 +99,21 @@ export default function Home() {
                   className="w-full h-full object-cover"
                 />
               </PhoneFrame>
+              <div
+                className="absolute hidden md:flex items-center gap-2 bg-white rounded-full px-3 py-1.5 text-sm font-bold text-[#1A1A2E] whitespace-nowrap select-none"
+                style={{
+                  bottom: "28%",
+                  right: "-90px",
+                  boxShadow: "0 4px 20px rgba(255,107,107,0.15)",
+                  animation: "chip-enter 0.55s cubic-bezier(0.34,1.56,0.64,1) 0.9s both, chip-float 4s ease-in-out 1.45s infinite",
+                }}
+              >
+                <span>📅</span><span>Shift assigned</span>
+              </div>
             </div>
 
-            {/* Centre phone */}
-            <div className="z-10">
+            {/* Centre phone — Worker home */}
+            <div className="relative z-10">
               <PhoneFrame width={190}>
                 <Image
                   src={heroScreenshots[1].src}
@@ -149,8 +126,23 @@ export default function Home() {
               </PhoneFrame>
             </div>
 
-            {/* Right phone */}
-            <div className="translate-y-8 hidden sm:block">
+            {/* Cover sorted chip — floats below centre phone, above all phones */}
+            <div
+              className="absolute hidden md:flex items-center gap-2 bg-white rounded-full px-3 py-1.5 text-sm font-bold text-[#1A1A2E] whitespace-nowrap select-none"
+              style={{
+                bottom: 0,
+                left: "50%",
+                transform: "translateX(-50%)",
+                zIndex: 30,
+                boxShadow: "0 4px 20px rgba(255,107,107,0.15)",
+                animation: "chip-enter 0.55s cubic-bezier(0.34,1.56,0.64,1) 1.6s both, chip-float 4s ease-in-out 2.15s infinite",
+              }}
+            >
+              <span>✅</span><span>Cover sorted</span>
+            </div>
+
+            {/* Right phone — Payroll */}
+            <div className="relative translate-y-8 hidden sm:block" style={{ zIndex: 20 }}>
               <PhoneFrame width={160}>
                 <Image
                   src={heroScreenshots[2].src}
@@ -160,6 +152,17 @@ export default function Home() {
                   className="w-full h-full object-cover"
                 />
               </PhoneFrame>
+              <div
+                className="absolute hidden md:flex items-center gap-2 bg-white rounded-full px-3 py-1.5 text-sm font-bold text-[#1A1A2E] whitespace-nowrap select-none"
+                style={{
+                  top: "22%",
+                  left: "-95px",
+                  boxShadow: "0 4px 20px rgba(255,107,107,0.15)",
+                  animation: "chip-enter 0.55s cubic-bezier(0.34,1.56,0.64,1) 1.25s both, chip-float 4s ease-in-out 1.8s infinite",
+                }}
+              >
+                <span>💷</span><span>£187.50 earned</span>
+              </div>
             </div>
           </div>
         </div>

@@ -83,34 +83,6 @@ export default function PhoneFrame({ children, width = 220, className = "" }: Ph
         {/* Screen content */}
         <div className="w-full h-full">{children}</div>
 
-        {/* Dynamic Island overlay */}
-        <div
-          className="absolute flex items-center justify-center"
-          style={{
-            top: width * 0.03,
-            left: "50%",
-            transform: "translateX(-50%)",
-            background: "#000",
-            borderRadius: 20,
-            width: width * 0.34,
-            height: width * 0.075,
-            zIndex: 20,
-          }}
-        >
-          {/* Camera dot */}
-          <div
-            style={{
-              width: width * 0.048,
-              height: width * 0.048,
-              borderRadius: "50%",
-              background: "rgba(255,255,255,0.08)",
-              border: "1.5px solid rgba(255,255,255,0.12)",
-              marginLeft: "auto",
-              marginRight: width * 0.04,
-            }}
-          />
-        </div>
-
         {/* Home indicator */}
         <div
           className="absolute"
