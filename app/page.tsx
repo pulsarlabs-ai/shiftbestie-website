@@ -97,6 +97,7 @@ export default function Home() {
                   width={160}
                   height={346}
                   className="w-full h-full object-cover"
+                  priority
                 />
               </PhoneFrame>
               <div
@@ -150,6 +151,7 @@ export default function Home() {
                   width={160}
                   height={346}
                   className="w-full h-full object-cover"
+                  priority
                 />
               </PhoneFrame>
               <div

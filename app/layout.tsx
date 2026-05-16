@@ -3,6 +3,7 @@ import { Nunito } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import PageReveal from "@/components/PageReveal";
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`min-h-screen flex flex-col ${nunito.className}`}>
+        <PageReveal />
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
